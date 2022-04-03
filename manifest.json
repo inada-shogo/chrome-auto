@@ -1,0 +1,12 @@
+{
+    "name": "opeMeru",
+    "version": "0.0.1",
+    "manifest_version": 3,
+    "description": "auto preration meru -100",
+    "content_scripts": [{
+      "matches": ["https://jp.mercari.com/*"],
+      "js": [
+        "ope.js"
+      ]
+    }]
+  }
