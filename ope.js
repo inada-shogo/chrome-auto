@@ -24,7 +24,8 @@ const getProductList = () => {
 /**
  * sec秒待機後処理を発火する関数
  */
-const showWaitTime = () => {
+const manageListings = () => {
+    console.info(sec,"秒後に編集画面に遷移します。");
     const interValId = setInterval(() => {
         if (timeCount === sec) {
             clearInterval(interValId);
@@ -45,5 +46,20 @@ const editItem = () => {
     },3000); 
 }
 
-console.info("chrome拡張起動しました。", sec,"秒後に処理を開始します。");
-urlPath.includes("item") ? editItem() : showWaitTime();
+const moveToScene = () => {
+    console.log("chrome拡張起動に成功しました。。");
+    switch (true) {
+        case urlPath.includes("item"):
+            editItem();
+            break;
+
+        case urlPath.includes("mypage/listings"):
+            manageListings();
+            break;
+    
+        default:
+            break;
+    }
+}
+
+moveToScene();
